@@ -1,0 +1,15 @@
+
+import time
+import board
+import pwmio
+from analogio import AnalogIn
+
+# LED setup for most CircuitPython boards:
+led1 = pwmio.PWMOut(board.D0, frequency=5000, duty_cycle=0)
+led2 = pwmio.PWMOut(board.D1, frequency=5000, duty_cycle=0)
+
+pot = AnalogIn(board.A1)
+
+while True:
+    led.duty_cycle = pot.value  
+    led2.duty_cycle = 65535 - pot.value
